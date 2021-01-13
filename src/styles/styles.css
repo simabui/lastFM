@@ -1,0 +1,17 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.2;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.selected {
+  color: #e2777a;
+  font-weight: 700;
+}
+.selected:hover {
+  color: #e2777a;
+}

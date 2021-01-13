@@ -1,0 +1,11 @@
+.tracks {
+  margin-top: 10px;
+}
+.form {
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+}
+.button {
+  height: 38px;
+}
