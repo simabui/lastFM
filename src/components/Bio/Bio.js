@@ -21,7 +21,7 @@ export default function Bio({ name, bio, tags }) {
       </span>
       <Row>
         {tags.map(tag => (
-          <Col key={tag.url} xs={12} sm={6} md={2}>
+          <Col key={tag.url} xs={4} md={2} className={styles.col}>
             <a
               href={tag.url}
               className={styles.tagLink}
