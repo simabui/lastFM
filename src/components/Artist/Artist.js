@@ -33,9 +33,15 @@ export default function Artist({ match }) {
     }
   }, [artist]);
 
+  if (isLoading) {
+    return (
+      <Row>
+        <Loader isLoading={isLoading} />
+      </Row>
+    );
+  }
   return (
     <Row>
-      <Loader isLoading={isLoading} />
       <Col xs={12} sm={6} md={4}>
         <img src={img} alt="artist" />
       </Col>

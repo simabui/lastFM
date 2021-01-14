@@ -9,7 +9,10 @@ export default function Track({ track }) {
     <Card className={styles.card}>
       <Card.Body className={styles.cardBody}>
         <Card.Title>{track.artist}</Card.Title>
-        <Card.Text>track- {track.name}</Card.Text>
+        <p>
+          <i>Track:</i>
+        </p>
+        <Card.Text>{track.name}</Card.Text>
       </Card.Body>
     </Card>
   );
