@@ -1,17 +1,16 @@
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Form, Button, Col } from 'react-bootstrap';
-import ReactPlaceholder from 'react-placeholder';
 import { searchInput } from '../../redux/tracks/tracksActions';
 import { fetchSearchedTracks } from '../../redux/tracks/tracksOperations';
 import Track from '../Track/Track';
+import Loader from '../Loader/Loader';
 import styles from './TracksSearch.module.css';
-import CustomPlaceholder from '../CustomPlaceholder/CustomPlaceholder';
 
 export default function TracksSearch() {
   const stateValue = useSelector(state => state.tracks.searchInput);
   const tracks = useSelector(state => state.tracks.searchedTracks);
-  const isReady = useSelector(state => state.tracks.isReady);
+  const isLoading = useSelector(state => state.tracks.isLoading);
   const dispatch = useDispatch();
 
   const dispatchInput = input => dispatch(searchInput(input));
@@ -49,18 +48,13 @@ export default function TracksSearch() {
           Search
         </Button>
       </Form>
+
+      <Loader isLoading={isLoading} />
       {tracks && tracks.length >= 1 && (
         <Row className={styles.tracks}>
           {tracks.map(track => (
             <Col xs={12} sm={6} md={4} lg={3} key={track.listeners}>
-              <ReactPlaceholder
-                showLoadingAnimation
-                ready={isReady}
-                delay={500}
-                customPlaceholder={CustomPlaceholder}
-              >
-                <Track track={track} />
-              </ReactPlaceholder>
+              <Track track={track} />
             </Col>
           ))}
         </Row>

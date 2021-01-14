@@ -1,14 +1,13 @@
 import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
-import ReactPlaceholder from 'react-placeholder';
 import { fetchTopTracks } from '../../redux/tracks/tracksOperations';
 import TrackItem from '../TrackItem/TrackItem';
-import CustomPlaceholder from '../CustomPlaceholder/CustomPlaceholder';
+import Loader from '../Loader/Loader';
 
 export default function Home() {
   const topTracks = useSelector(state => state.tracks.collection);
-  const isReady = useSelector(state => state.tracks.isReady);
+  const isLoading = useSelector(state => state.tracks.isLoading);
   const dispatch = useDispatch();
 
   const dispatchTopTracks = useCallback(() => {
@@ -22,17 +21,11 @@ export default function Home() {
 
   return (
     <Row>
+      <Loader isLoading={isLoading} />
       {topTracks.length > 1 &&
         topTracks.map(track => (
           <Col xs={12} md={6} lg={4} key={track.name}>
-            <ReactPlaceholder
-              showLoadingAnimation
-              ready={isReady}
-              delay={500}
-              customPlaceholder={CustomPlaceholder}
-            >
-              <TrackItem data={track} />
-            </ReactPlaceholder>
+            <TrackItem data={track} />
           </Col>
         ))}
     </Row>

@@ -5,8 +5,8 @@ export const TYPE = {
   getSearchedTracksStart: 'tracks/SEARCHED_TRACKS_GET_START',
   getSearchedTracksSuccess: 'tracks/SEARCHED_TRACKS_GET_SUCCESS',
   getSearchedTracksFail: 'tracks/SEARCHED_TRACKS_GET_FAIL',
-  search: 'tracks/SEARCH_TRACK',
-  isReady: 'tracks/SET_IS_READY',
+  search: 'tracks/SEARCH_INPUT',
+  isLoading: 'tracks/IS_LOADING',
 };
 
 // TOPTRACKS
@@ -54,9 +54,9 @@ export function searchInput(str) {
   };
 }
 // LOADER
-export function setIsReady(bool) {
+export function setIsLoading(bool) {
   return {
-    type: TYPE.isReady,
+    type: TYPE.isLoading,
     payload: { bool },
   };
 }

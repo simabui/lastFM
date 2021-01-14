@@ -6,7 +6,6 @@ import App from './components/App';
 import './styles/styles.css';
 import configureStore from './redux/configureStore';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-placeholder/lib/reactPlaceholder.css';
 
 // redux store
 const store = configureStore;

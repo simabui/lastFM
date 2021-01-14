@@ -47,9 +47,9 @@ function errorReducer(state = null, action) {
   }
 }
 
-function isReadyReducer(state = false, action) {
+function isLoadingReducer(state = false, action) {
   switch (action.type) {
-    case TYPE.isReady: {
+    case TYPE.isLoading: {
       return action.payload.bool;
     }
 
@@ -63,7 +63,7 @@ const collectionReducers = combineReducers({
   searchedTracks: searchedTracksReducer,
   searchInput: searchInputReducer,
   error: errorReducer,
-  isReady: isReadyReducer,
+  isLoading: isLoadingReducer,
 });
 
 export default collectionReducers;
